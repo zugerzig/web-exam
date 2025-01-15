@@ -92,7 +92,7 @@
 .catalog-sort {
     padding: 0.2rem 0.5rem;
     border-radius: 3px;
-    border: 1px solid #d72323;
+    border: 1px solid #555;
 }
 
 .catalog__list {
@@ -144,7 +144,7 @@
 }
 
 .input-wrapper input:focus {
-    border-color: #d72323;
+    border-color: #555;
 }
 
 /* числовой ввод диапазона цены */

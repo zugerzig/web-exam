@@ -24,7 +24,7 @@
 .btn {
     width: fit-content;
     padding: 0.3rem 2rem;
-    background-color: #d72323;
+    background-color: #555;
     border-radius: 7px;
     color: white;
     cursor: pointer;
@@ -57,7 +57,7 @@
 
 .header__input {
     padding: 0.5rem;
-    border: 1px solid #d72323;
+    border: 1px solid #555;
     border-radius: 7px;
     width: 20vw;
 }
@@ -66,8 +66,8 @@
     padding: 0.3rem 1.5rem;
     margin-left: 7px;
     border-radius: 7px;
-    background-color: #d72323;
-    border: 1px solid #d72323;
+    background-color: #555;
+    border: 1px solid #555;
     color: white;
     font-size: 18px;
     cursor: pointer;
@@ -98,13 +98,13 @@
 .header__btn {
     display: block;
     border-radius: 7px;
-    border: 1px solid #d72323;
+    border: 1px solid #555;
     color: black;
     cursor: pointer;
 }
 
 .header__btn:hover {
-    background-color: #d72323;
+    background-color: #555;
     color: #fff;
 }
 

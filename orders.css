@@ -9,17 +9,17 @@
 }
 
 .orders__head h4 {
-    border: 1px solid #d72323;
+    border: 1px solid #555;
     padding: 1rem;
     border-left: none;
 }
 
 .orders__head:nth-child(1) {
-    border-left: 1px solid #d72323;
+    border-left: 1px solid #555;
 }
 
 .orders__list-item {
-    border-bottom: 1px solid #d72323;
+    border-bottom: 1px solid #555;
 }
 
 .orders__list-item > div {
