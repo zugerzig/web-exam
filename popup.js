@@ -8,36 +8,25 @@ class Popup {
     }
 
     init() {
-        if(!this.popup) {
-            return;
-        }
-
-        this.popup.addEventListener('click', () => {
-            this.closePopup();
-        })
+        if (!this.popup) return;
+        this.popup.addEventListener('click', this.closePopup.bind(this));
     }
 
-    setContent(text='') {
+    setContent(text = '') {
         this.popup.style.color = 'white';
         this.content.innerText = text;
     }
 
     openPopup(text, type) {
-        if(type === 'error') {
-            this.popup.style.backgroundColor = 'red';
-        } else {
-            this.popup.style.backgroundColor = 'green';
-        }
+        this.popup.style.backgroundColor = type === 'error' ? 'red' : 'green';
         this.setContent(text);
         this.popup.style.top = '0px';
 
-        setTimeout(() => {
-            this.closePopup();
-        }, 3000);
+        setTimeout(() => this.closePopup(), 3000);
     }
 
     closePopup() {
-        this.popup.style.top = '-50px'; // Переместить вверх
+        this.popup.style.top = '-50px';
         this.setContent();
     }
 }
