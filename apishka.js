@@ -1,4 +1,4 @@
-import windows from './windows.js';
+import popup from './popup.js';
 
 class Api {
     constructor() {
@@ -84,7 +84,7 @@ class Api {
     
             return await response.json();
         } catch (error) {
-            windows.openwindows('Ошибка при заполнении', 'error');
+            popup.openpopup('Ошибка при заполнении', 'error');
             console.error('Ошибка при отправке данных:', error.message);
         }
     }
@@ -123,7 +123,7 @@ class Api {
         
             return await response.json();
         } catch (error) {
-            windows.openwindows('Ошибка сервера', 'error');
+            popup.openpopup('Ошибка сервера', 'error');
             console.error('Произошла ошибка:', error.message);
         }
     }

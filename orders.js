@@ -1,6 +1,6 @@
 import api from './apishka.js';
 import Modal from './modal.js';
-import windows from './windows.js';
+import popup from './popup.js';
 
 class Orders {
     constructor() {
@@ -105,8 +105,8 @@ class Orders {
     }
 
     initDeleteModal() {
-        const closeBtn = this.modalDelete.windows.querySelector('.modal-close');
-        const submitBtn = this.modalDelete.windows.querySelector('.modal-submit');
+        const closeBtn = this.modalDelete.popup.querySelector('.modal-close');
+        const submitBtn = this.modalDelete.popup.querySelector('.modal-submit');
 
         closeBtn.addEventListener('click', () => this.modalDelete.close());
         submitBtn.addEventListener('click', async () => {
@@ -119,13 +119,13 @@ class Orders {
     }
 
     initViewModal() {
-        const closeBtns = this.modalView.windows.querySelectorAll('.modal-close');
+        const closeBtns = this.modalView.popup.querySelectorAll('.modal-close');
         closeBtns.forEach(el => el.addEventListener('click', () => this.modalView.close()));
     }
 
     async deleteOrder(id) {
         const res = await api.deleteOrderById(id);
-        if (res) windows.openwindows('Заказ удален');
+        if (res) popup.openpopup('Заказ удален');
     }
 }
 
