@@ -1,4 +1,4 @@
-import api from './apishka.js';
+import api from './service.js';
 
 class Cart {
     constructor() {
