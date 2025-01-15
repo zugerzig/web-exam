@@ -1,4 +1,4 @@
-import api from './service.js';
+import api from './apishka.js';
 import popup from './popup.js';
 
 class Modal {
