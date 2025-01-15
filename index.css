@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", serif;
+}
+
+.content-wrapp {
+    width: 100%;
+    max-width: 1360px;
+    padding: 0 20px;
+    margin: 0 auto;
+    background-color: white;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    background-image: url('../assets/section-bg.webp');
+}
+
+.btn {
+    width: fit-content;
+    padding: 0.3rem 2rem;
+    background-color: #d72323;
+    border-radius: 7px;
+    color: white;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: scale(1.02);
+}
+
+.header-wrapp {
+    position: relative;
+    border-top: 4px solid #4a4c59;
+    background-color: #fff;
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.06);
+    z-index: 1;
+}
+
+.header {
+    width: 100vw;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__logo {
+    display: block;
+    width: 160px;
+}
+
+.header__input {
+    padding: 0.5rem;
+    border: 1px solid #d72323;
+    border-radius: 7px;
+    width: 20vw;
+}
+
+.header__submit {
+    padding: 0.3rem 1.5rem;
+    margin-left: 7px;
+    border-radius: 7px;
+    background-color: #d72323;
+    border: 1px solid #d72323;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.header__submit:hover {
+    transform: scale(1.05);
+}
+
+.header__icon {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+} 
+
+.header__icon > svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.header__btns {
+    display: flex;
+    gap: 10px;
+    margin-right: 20px;
+}
+
+.header__btn {
+    display: block;
+    border-radius: 7px;
+    border: 1px solid #d72323;
+    color: black;
+    cursor: pointer;
+}
+
+.header__btn:hover {
+    background-color: #d72323;
+    color: #fff;
+}
+
+.footer {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 0;
+    font-size: 20px;
+    background-image: url('../assets/footer-bg.webp');
+    background-size: 100% auto;
+}

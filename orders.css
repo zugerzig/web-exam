@@ -1,0 +1,328 @@
+.orders {
+    width: 100%;
+}
+
+.orders__head, .orders__list-item {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 50px 1fr 1fr 1fr 1fr 200px;
+}
+
+.orders__head h4 {
+    border: 1px solid #d72323;
+    padding: 1rem;
+    border-left: none;
+}
+
+.orders__head:nth-child(1) {
+    border-left: 1px solid #d72323;
+}
+
+.orders__list-item {
+    border-bottom: 1px solid #d72323;
+}
+
+.orders__list-item > div {
+    padding: 0.5rem 1rem;
+}
+
+.orders__header h2 {
+    font-size: 30px;
+    margin: 10px 0 20px;
+    font-weight: 400;
+}
+
+.orders__control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    margin: 0 10px 0 auto;
+}
+
+.orders__control img {
+    display: block;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.orders__control img:hover {
+    transform: scale(1.1);
+}
+
+/* обрезка не помещающихся строк */
+.orders__names p {
+    width: 200px; /* Ширина блока */
+    max-height: 40px; /* Ограничение высоты */
+    line-height: 20px; /* Высота строки */
+    overflow: hidden; /* Скрытие текста, выходящего за границы */
+    display: -webkit-box; /* Использование flex-контейнера */
+    -webkit-line-clamp: 2; /* Количество строк до обрезания */
+    -webkit-box-orient: vertical; /* Вертикальная ориентация */
+    text-overflow: ellipsis; /* Добавление троеточия */
+}
+
+/* модальное окно */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+}
+
+/* Контент модального окна */
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 60%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+}
+
+/* Кнопка закрытия */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Скрытие окна */
+.hidden {
+    display: none;
+    opacity: 0;
+}
+
+.modal-delete__btns {
+    margin: 30px auto 0;
+    display: flex;
+    gap: 20px;
+    width: fit-content;
+}
+
+.modal-delete__btns .btn {
+    border: none;
+    padding: 0.5rem 2rem;
+}
+
+.modal-view .modal-content {
+    max-width: 550px;
+    padding: 40px;
+}
+
+.modal__content-wrapp {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 25px;
+    gap: 10px;
+}
+
+.modal__subtitle {
+    font-size: 18px;
+    font-weight: 700;
+    text-align: start;
+    padding: 0 0 1rem 0;
+}
+
+.modal__field input, .modal__field select, .modal__field textarea {
+    width: 100%;
+    padding: 0.2rem 0.5rem;
+}
+
+.modal__field p {
+    text-align: start;
+    width: 230px; /* Ширина блока */
+    white-space: nowrap; /* Запрет на перенос строки */
+    overflow: hidden; /* Скрытие текста, выходящего за границы */
+    text-overflow: ellipsis; /* Добавление троеточия в конце */
+}
+
+/* скрываю поля ввода если модалка для просмотра */
+.modal__field_text input, .modal__field_text select, .modal__field_text textarea {
+    display: none;
+}
+
+/* скрываю текстовые поля */
+.modal__field_inputs p {
+    display: none;
+}
+
+/* отображаю текстовые поля если модалка для просмотра */
+.modal__field_text p {
+display: block;
+}
+
+.modal-view .btn {
+    display: none;
+}
+
+.modal-view .modal-close_view {
+    display: block;
+}
+
+.modal-view_edit .btn {
+    display: block;
+}
+
+.modal-view_edit .modal-close_view {
+    display: none;
+}
+
+.modal-view .modal-view__btns {
+    display: flex;
+    width: fit-content;
+    margin: 10px 0 0 auto;
+    gap: 10px;
+}
+
+.modal-view .btn {
+    border: none;
+}
+
+@media (max-width: 1200px) {
+    .orders__head, .orders__list-item {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 50px 0.8fr 1fr 0.6fr 0.5fr 100px;
+    }
+}
+
+@media (max-width: 900px) {
+    .orders__head, .orders__list-item {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 50px 0.8fr 1fr 0.6fr 0.5fr 100px;
+    }
+
+    .orders__head {
+        display: none;
+    }
+
+    .orders__list-item {
+        border: 1px solid #d72323;
+        display: flex;
+        flex-direction: column;
+        width: 70vw;
+        margin: 0 auto 5px;
+        padding-left: 120px;
+    }
+
+    .orders__control {
+        margin: 0;
+    }
+
+    .orders__num, 
+    .orders__delivery, 
+    .orders__price, 
+    .orders__names, 
+    .orders__date {
+        position: relative;
+    }
+
+    .orders__num::before, 
+    .orders__delivery::before, 
+    .orders__price::before, 
+    .orders__names::before, 
+    .orders__date::before {
+        position: absolute;
+        content: '№:';
+        top: 6px;
+        left: -93px;
+        font-size: 18px;
+    }
+
+    .orders__names::before {
+        content: 'Состав:';
+    }
+
+    .orders__price::before {
+        content: 'Стоимость:';
+    }
+
+    .orders__delivery::before {
+        content: 'Доставка:';
+    }
+
+    .orders__date::before {
+        content: 'Дата:';
+    }
+
+    .modal-content {
+        width: 70%;
+        padding: 30px 20px;
+    }
+
+    .modal-content h2 {
+        font-size: 18px;
+    }
+
+    .modal__content-wrapp {
+        grid-template-columns: 30% 1fr;
+    }
+
+    .modal__subtitle {
+        font-size: 14px;
+    }
+
+    .modal__field * {
+        font-size: 14px;
+    }
+}
+@media (max-width: 650px) {
+    .modal-content {
+        width: 90%;
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 530px) {
+    .orders__list-item {
+        width: 90vw;
+        margin: 0 auto 5px;
+        padding-left: 120px;
+    }
+
+    .footer {
+        font-size: 14px;
+    }
+
+    .modal__subtitle {
+        padding: 0;
+        margin-top: 10px;
+    }
+
+
+    .modal__content-wrapp {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+@media (max-width: 400px) {
+    .orders__list-item * {
+        font-size: 14px;
+    }
+
+    .orders__list-item *::before {
+        font-size: 14px;
+        top: 7px;
+        left: -80px;
+    }
+
+    .orders__list-item {
+        padding-left: 100px;
+    }
+}
