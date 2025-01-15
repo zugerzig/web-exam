@@ -79,21 +79,9 @@ class App {
                 break;
         }
         // применяем фильтр если есть и обновляем каталог
-        const filtredCatalog = catalog.filterHandler(this.catalogItems);
-        this.setCatalogItems(this.countItems, filtredCatalog);    
-    }
- 
-    search(str) {
-        const searchedList = this.catalogItems.filter(({name}) => {
-            return name.toLocaleLowerCase().includes(str.trim().toLocaleLowerCase());
-        })
-        this.setCatalogItems(this.countItems, searchedList);
     }
 
     // обновление каталога по имеющимся данным (количество на старнице, список всех товаров)
-    setCatalogItems(count, items) {
-        catalog.setItems(count, items);
-    }
 
     // инициализация кнопок для инпутов в фильтре
     initFilterInputs() {
