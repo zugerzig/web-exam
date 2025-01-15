@@ -125,7 +125,7 @@ class Orders {
 
     async deleteOrder(id) {
         const res = await api.deleteOrderById(id);
-        if (res) popup.openpopup('Заказ удален');
+        if (res) popup.openPopup('Заказ удален');
     }
 }
 

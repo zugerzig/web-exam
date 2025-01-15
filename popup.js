@@ -9,7 +9,7 @@ class Popup {
 
     init() {
         if (!this.popup) return;
-        this.popup.addEventListener('click', this.closepopup.bind(this));
+        this.popup.addEventListener('click', this.closePopup.bind(this));
     }
 
     setContent(text = '') {
@@ -17,18 +17,18 @@ class Popup {
         this.content.innerText = text;
     }
 
-    openpopup(text, type) {
+    openPopup(text, type) {
         this.popup.style.backgroundColor = type === 'error' ? 'red' : 'green';
         this.setContent(text);
         this.popup.style.top = '0px';
 
-        setTimeout(() => this.closepopup(), 3000);
+        setTimeout(() => this.closePopup(), 3000);
     }
 
-    closepopup() {
+    closePopup() {
         this.popup.style.top = '-50px';
         this.setContent();
     }
 }
 
-export default new popup();
+export default new Popup();

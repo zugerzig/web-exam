@@ -115,7 +115,7 @@ class Modal {
                 if (response) {
                     event.target.reset();
                     this.close();
-                    popup.openpopup('Данные сохранены.');
+                    popup.openPopup('Данные сохранены.');
                 }
             });
     }

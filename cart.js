@@ -23,7 +23,7 @@ class Cart {
 
     async init() {
         this.addEventListeners();
-        await this.reloadcart();
+        await this.reloadCart();
     }
 
     addEventListeners() {
@@ -39,7 +39,7 @@ class Cart {
         if (target.matches('.btn')) {
             const card = target.closest('.card');
             if (card && card.dataset.productId) {
-                this.removeProductFromcart(card.dataset.productId);
+                this.removeProductFromCart(card.dataset.productId);
             }
         }
     }
@@ -55,7 +55,7 @@ class Cart {
         const response = await api.createOrder(formData);
 
         if (response) {
-            this.resetcart();
+            this.resetCart();
         }
     }
 
@@ -80,17 +80,17 @@ class Cart {
         return formData;
     }
 
-    async reloadcart() {
-        await this.fetchcartItems();
-        this.rendercart();
+    async reloadCart() {
+        await this.fetchCartItems();
+        this.renderCart();
         this.updateTotal();
     }
 
-    async fetchcartItems() {
+    async fetchCartItems() {
         this.cartList = await Promise.all(this.productIdList.map(id => api.getItem(id)));
     }
 
-    rendercart() {
+    renderCart() {
         this.container.innerHTML = '';
         if (!this.cartList.length) {
             this.emptyText.style.display = 'block';
@@ -98,10 +98,10 @@ class Cart {
         }
 
         this.emptyText.style.display = 'none';
-        this.cartList.forEach(item => this.rendercartItem(item));
+        this.cartList.forEach(item => this.renderCartItem(item));
     }
 
-    rendercartItem(item) {
+    renderCartItem(item) {
         const clone = this.template.content.cloneNode(true);
         const mainPrice = item.discount_price || item.actual_price;
 
@@ -166,13 +166,13 @@ class Cart {
         this.updateTotal();
     }
 
-    removeProductFromcart(id) {
+    removeProductFromCart(id) {
         this.productIdList = this.productIdList.filter(productId => productId !== id);
         localStorage.setItem('cartList', JSON.stringify(this.productIdList));
-        this.reloadcart();
+        this.reloadCart();
     }
 
-    resetcart() {
+    resetCart() {
         this.form.reset();
         localStorage.setItem('cartList', '[]');
         this.productIdList = [];
@@ -180,4 +180,4 @@ class Cart {
     }
 }
 
-const cart = new cart();
+const cart = new Cart();
