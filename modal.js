@@ -1,5 +1,5 @@
-import api from './service.js';
-import popup from './popup.js';
+import api from './apishka.js';
+import windows from './windows.js';
 
 class Modal {
     constructor(modalId) {
@@ -115,7 +115,7 @@ class Modal {
                 if (response) {
                     event.target.reset();
                     this.close();
-                    popup.openPopup('Данные сохранены.');
+                    windows.openwindows('Данные сохранены.');
                 }
             });
     }

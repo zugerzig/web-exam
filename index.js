@@ -1,4 +1,4 @@
-import popup from './popup.js';
+import windows from './windows.js';
 import catalog from './catalog.js';
 
 class App {
@@ -21,7 +21,7 @@ class App {
         this.catalogItems = this.data?.items;
         this.setCatalogItems(this.countItems, this.catalogItems);
 
-        popup.init();
+        windows.init();
 
         if (!document.querySelector(`.js-sidebar`)) return;
         this.initFilterInputs();

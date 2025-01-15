@@ -1,32 +1,32 @@
-.cart {
+.bucket {
     width: 100%;
 }
 
-.cart__head h2 {
+.bucket__head h2 {
     font-size: 30px;
     margin: 10px 0 20px;
     font-weight: 400;
     color: #555;
 }
 
-.cart__empty-description {
+.bucket__empty-description {
     font-size: 25px;
     padding: 2rem;
     opacity: 0.7;
     color: #888;
 }
 
-.cart__list {
+.bucket__list {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 15px;
 }
 
-.cart__order {
+.bucket__order {
     padding: 30px 0 50px;
 }
 
-.cart__form {
+.bucket__form {
     display: grid;
     width: fit-content;
     margin-left: 30px;
@@ -35,18 +35,18 @@
     row-gap: 15px;
 }
 
-.cart__form-item {
+.bucket__form-item {
     display: flex;
     flex-direction: column;
     width: 25vw;
 }
 
-.cart__form-item label {
+.bucket__form-item label {
     margin: 0 0 5px 5px;
     color: #333;
 }
 
-.cart__form-item input, .cart__form-item select {
+.bucket__form-item input, .bucket__form-item select {
     padding: 10px 15px;
     border-radius: 7px;
     border: 1px solid #888;
@@ -54,7 +54,7 @@
     background-color: #f9f9f9;
 }
 
-.cart__form-item textarea {
+.bucket__form-item textarea {
     border-radius: 7px;
     border: 1px solid #888;
     padding: 10px 15px;
@@ -62,15 +62,15 @@
     background-color: #f9f9f9;
 }
 
-.cart__form-item input[type="date"], .cart__form-item select {
+.bucket__form-item input[type="date"], .bucket__form-item select {
     padding: 9px 15px;
 }
 
-.cart__form-checkbox {
+.bucket__form-checkbox {
     padding: 8px 10px;
 }
 
-.cart__form-btns {
+.bucket__form-btns {
     width: 100%;
     display: flex;
     align-items: center;
@@ -78,7 +78,7 @@
     margin-top: 18px;
 }
 
-.cart__form-btn {
+.bucket__form-btn {
     display: block;
     font-size: 16px;
     padding: 0.3rem 1.5rem;
@@ -87,51 +87,51 @@
     color: #000;
 }
 
-.cart__total {
+.bucket__total {
     padding: 20px 0 0 20px;
 }
 
-.cart__total-price {
+.bucket__total-price {
     font-size: 18px;
     font-weight: 700;
     color: #555;
 }
 
-.cart__total-delivery {
+.bucket__total-delivery {
     font-size: 16px;
     color: #555;
 }
 
 @media (max-width: 1250px) {
-    .cart__list {
+    .bucket__list {
         grid-template-columns: repeat(4, 1fr);
     }
 
-    .cart__form-item {
+    .bucket__form-item {
         width: 30vw;
     }
 }
 
 @media (max-width: 990px) {
-    .cart__list {
+    .bucket__list {
         grid-template-columns: repeat(3, 1fr);
     }
 
-    .cart__form-item {
+    .bucket__form-item {
         width: 40vw;
     }
 }
 
 @media (max-width: 767px) {
-    .cart__list {
+    .bucket__list {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .cart__head h2 {
+    .bucket__head h2 {
         font-size: 20px;
     }
 
-    .cart__form {
+    .bucket__form {
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -139,29 +139,29 @@
         padding: 0 0.5rem;
     }
 
-    .cart__total {
+    .bucket__total {
         padding: 0;
     }
 
-    .cart__form-item {
+    .bucket__form-item {
         width: 100%;
     }
 }
 
 @media (max-width: 525px) {
-    .cart *, .cart__form-item input, .cart__form-item select {
+    .bucket *, .bucket__form-item input, .bucket__form-item select {
         font-size: 14px;
     }
 
-    .cart__list {
+    .bucket__list {
         grid-template-columns: 1fr;
     }
 
-    .cart__total .btn {
+    .bucket__total .btn {
         padding: 0.2rem 0.8rem;
     }
 
-    .cart__form-btns {
+    .bucket__form-btns {
         justify-content: space-between;
     }
 }
