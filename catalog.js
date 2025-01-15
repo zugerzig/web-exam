@@ -11,7 +11,7 @@ class Catalog {
         this.filter = { categorys: [] };
         this.items = [];
         this.maxPrice = 0;
-        this.bucketList = JSON.parse(localStorage.getItem('bucketList') || '[]');
+        this.cartList = JSON.parse(localStorage.getItem('cartList') || '[]');
 
         this.init();
     }
@@ -144,7 +144,7 @@ class Catalog {
                 clone.querySelector(".card__picture-img").setAttribute("src", items[item].image_url);
             }
 
-            if (this.bucketList.includes(items[item].id.toString())) {
+            if (this.cartList.includes(items[item].id.toString())) {
                 clone.querySelector(".js-card-btn").classList.add('card__btn_added');
                 clone.querySelector(".js-card-btn").innerText = 'Удалить';
             }
@@ -154,17 +154,17 @@ class Catalog {
     }
 
     cardBtnHandler(id, btnEl) {
-        if (this.bucketList.includes(id)) {
-            localStorage.setItem('bucketList', JSON.stringify(this.bucketList.filter(i => i !== id)));
+        if (this.cartList.includes(id)) {
+            localStorage.setItem('cartList', JSON.stringify(this.cartList.filter(i => i !== id)));
             btnEl.classList.remove('card__btn_added');
             btnEl.innerText = 'Добавить';
         } else {
-            localStorage.setItem('bucketList', JSON.stringify([...this.bucketList, id]));
+            localStorage.setItem('cartList', JSON.stringify([...this.cartList, id]));
             btnEl.classList.add('card__btn_added');
             btnEl.innerText = 'Удалить';
         }
 
-        this.bucketList = JSON.parse(localStorage.getItem('bucketList'));
+        this.cartList = JSON.parse(localStorage.getItem('cartList'));
     }
 }
 

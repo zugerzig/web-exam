@@ -1,17 +1,17 @@
 import api from './apishka.js';
 
-class bucket {
+class Cart {
     constructor() {
         this.container = document.querySelector('.js-card-list');
         this.totalBlock = document.querySelector('.js-total');
         this.template = document.getElementById("js-card-template");
-        this.emptyText = document.querySelector('.bucket__empty-description');
+        this.emptyText = document.querySelector('.cart__empty-description');
         this.dateField = document.querySelector('.js-date');
         this.timeField = document.querySelector('.js-time');
         this.form = document.querySelector('.js-form');
         this.resetBtn = document.querySelector('.js-form-reset');
-        this.productIdList = JSON.parse(localStorage.getItem('bucketList')) || [];
-        this.bucketList = [];
+        this.productIdList = JSON.parse(localStorage.getItem('cartList')) || [];
+        this.cartList = [];
         this.deliverySettings = {
             dayIndex: null,
             partDay: '08:00-12:00',
@@ -23,7 +23,7 @@ class bucket {
 
     async init() {
         this.addEventListeners();
-        await this.reloadbucket();
+        await this.reloadcart();
     }
 
     addEventListeners() {
@@ -39,7 +39,7 @@ class bucket {
         if (target.matches('.btn')) {
             const card = target.closest('.card');
             if (card && card.dataset.productId) {
-                this.removeProductFrombucket(card.dataset.productId);
+                this.removeProductFromcart(card.dataset.productId);
             }
         }
     }
@@ -55,7 +55,7 @@ class bucket {
         const response = await api.createOrder(formData);
 
         if (response) {
-            this.resetbucket();
+            this.resetcart();
         }
     }
 
@@ -80,28 +80,28 @@ class bucket {
         return formData;
     }
 
-    async reloadbucket() {
-        await this.fetchbucketItems();
-        this.renderbucket();
+    async reloadcart() {
+        await this.fetchcartItems();
+        this.rendercart();
         this.updateTotal();
     }
 
-    async fetchbucketItems() {
-        this.bucketList = await Promise.all(this.productIdList.map(id => api.getItem(id)));
+    async fetchcartItems() {
+        this.cartList = await Promise.all(this.productIdList.map(id => api.getItem(id)));
     }
 
-    renderbucket() {
+    rendercart() {
         this.container.innerHTML = '';
-        if (!this.bucketList.length) {
+        if (!this.cartList.length) {
             this.emptyText.style.display = 'block';
             return;
         }
 
         this.emptyText.style.display = 'none';
-        this.bucketList.forEach(item => this.renderbucketItem(item));
+        this.cartList.forEach(item => this.rendercartItem(item));
     }
 
-    renderbucketItem(item) {
+    rendercartItem(item) {
         const clone = this.template.content.cloneNode(true);
         const mainPrice = item.discount_price || item.actual_price;
 
@@ -141,7 +141,7 @@ class bucket {
     }
 
     updateTotal() {
-        const total = this.bucketList.reduce((sum, { discount_price, actual_price }) => sum + (discount_price || actual_price), 0);
+        const total = this.cartList.reduce((sum, { discount_price, actual_price }) => sum + (discount_price || actual_price), 0);
         const delivery = this.deliverySettings.cost;
 
         this.totalBlock.querySelector('.js-total-price').textContent = total + delivery;
@@ -166,18 +166,18 @@ class bucket {
         this.updateTotal();
     }
 
-    removeProductFrombucket(id) {
+    removeProductFromcart(id) {
         this.productIdList = this.productIdList.filter(productId => productId !== id);
-        localStorage.setItem('bucketList', JSON.stringify(this.productIdList));
-        this.reloadbucket();
+        localStorage.setItem('cartList', JSON.stringify(this.productIdList));
+        this.reloadcart();
     }
 
-    resetbucket() {
+    resetcart() {
         this.form.reset();
-        localStorage.setItem('bucketList', '[]');
+        localStorage.setItem('cartList', '[]');
         this.productIdList = [];
         window.location.replace('/');
     }
 }
 
-const bucket = new bucket();
+const cart = new cart();

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="./content.css">
     <link rel="stylesheet" href="./card.css">
-    <link rel="stylesheet" href="./bucket.css">
+    <link rel="stylesheet" href="./cart.css">
 </head>
 <body>
     <div class="app">
@@ -42,12 +42,12 @@
                     <path d="M3 3.32001L21 21.32" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
-            <div class="bucket">
-                <div class="bucket__head">
+            <div class="cart">
+                <div class="cart__head">
                     <h2>Корзина</h2>
                 </div>
-                <p class="bucket__empty-description">Корзина пуста. Перейдите в каталог, чтобы добавить товары.</p>
-                <div class="bucket__list js-card-list">
+                <p class="cart__empty-description">Корзина пуста. Перейдите в каталог, чтобы добавить товары.</p>
+                <div class="cart__list js-card-list">
                     <!-- использую template для шаблонного кода -->
                     <template id="js-card-template">
                         <div class="card">
@@ -134,36 +134,36 @@
                         </div>
                     </template>
                 </div>
-                <div class="bucket__order">
-                    <div class="bucket__head">
+                <div class="cart__order">
+                    <div class="cart__head">
                         <h2>Оформление заказа</h2>
                     </div>
-                    <form class="bucket__form js-form">
-                        <div class="bucket__form-item">
+                    <form class="cart__form js-form">
+                        <div class="cart__form-item">
                             <label for="name">*Имя:</label>
                             <input type="text" name="full_name" placeholder="Имя" id="name">
                         </div>
-                        <div class="bucket__form-item">
+                        <div class="cart__form-item">
                             <label for="adress">*Адрес доставки:</label>
                             <input type="text" name="delivery_address" placeholder="Адрес" id="adress">
                         </div>
-                        <div class="bucket__form-item">
+                        <div class="cart__form-item">
                             <label for="phone">*Телефон:</label>
                             <input type="tel" name="phone" placeholder="Телефон" id="phone">
                         </div>
-                        <div class="bucket__form-item">
+                        <div class="cart__form-item">
                             <label for="date">*Дата доставки:</label>
                             <input type="date" name="delivery_date" placeholder="Дата" id="date" class="js-date">
                         </div>
-                        <div class="bucket__form-item">
+                        <div class="cart__form-item">
                             <label for="email">*Email:</label>
                             <input type="email" name="email" placeholder="Email" id="email">
-                            <div class="bucket__form-checkbox">
+                            <div class="cart__form-checkbox">
                                 <input type="checkbox" name="mailing" id="mailing">
                                 <label for="mailing">Подписаться на рассылку</label>
                             </div>
                         </div>
-                        <div class="bucket__form-item">
+                        <div class="cart__form-item">
                             <label for="time">*Временной интервал доставки:</label>
                             <select id="time" class="js-time">
                                 <option value="08:00-12:00">08:00-12:00</option>
@@ -172,21 +172,21 @@
                                 <option value="18:00-22:00">18:00-22:00</option>
                             </select>
                         </div>
-                        <div class="bucket__form-item">
+                        <div class="cart__form-item">
                             <label for="text">Комментарии:</label>
                             <textarea name="comment" id="text"></textarea>
                         </div>
-                        <div class="bucket__form-item">
-                            <div class="bucket__total js-total">
-                                <div class="bucket__total-price">
+                        <div class="cart__form-item">
+                            <div class="cart__total js-total">
+                                <div class="cart__total-price">
                                     <span>Итоговая стоимость: <span class="js-total-price">0</span>₽</span>
                                 </div>
-                                <div class="bucket__total-delivery">
+                                <div class="cart__total-delivery">
                                     <span>(стоимость доставки: <span class="js-total-delivery">0</span>₽)</span>
                                 </div>
-                                <div class="bucket__form-btns">
-                                    <button class="btn bucket__form-btn js-form-reset">Сбросить</button>
-                                    <button type="submit" class="btn bucket__form-btn js-form-sabmit">Оформить</button>
+                                <div class="cart__form-btns">
+                                    <button class="btn cart__form-btn js-form-reset">Сбросить</button>
+                                    <button type="submit" class="btn cart__form-btn js-form-sabmit">Оформить</button>
                                 </div>
                             </div>
                         </div>
@@ -200,6 +200,6 @@
     </div>
 
     <script type="module" src="./index.js" defer></script>
-    <script type="module" src="./bucket.js" defer></script>
+    <script type="module" src="./cart.js" defer></script>
 </body>
 </html>
